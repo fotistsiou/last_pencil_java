@@ -1,11 +1,11 @@
 # Last Pencil (Java)
 
 ## Project Details
-> * **Level**: 🌟🌟🌟 Hard | **Time**: 🕒 ~12 hours
-> * **Course**: [Introduction to Java](https://hyperskill.org/courses/8-introduction-to-java)
-> * **Project**: [Last Pencil (Java)](https://hyperskill.org/projects/341?track=8)
-> * **Description**: Learn how to build a simple but engaging game and practice the Java basics.
-> * **Powered by**: [Hyperskill](https://hyperskill.org/)
+> - **Level**: 🌟🌟🌟 Hard | **Time**: 🕒 ~12 hours
+> - **Course**: [Introduction to Java](https://hyperskill.org/courses/8-introduction-to-java)
+> - **Project**: [Last Pencil (Java)](https://hyperskill.org/projects/341?track=8)
+> - **Description**: Learn how to build a simple but engaging game and practice the Java basics.
+> - **Powered by**: [Hyperskill](https://hyperskill.org/)
 
 ## About
 Playing with friends is pure fun but getting ahead of them is even more enjoyable. Invite a friend to play the Last 
