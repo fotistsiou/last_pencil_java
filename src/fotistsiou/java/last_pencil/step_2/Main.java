@@ -1,5 +1,7 @@
 package fotistsiou.java.last_pencil.step_2;
 
+import java.util.Scanner;
+
 /**
  * New rules
  * ---------
@@ -18,4 +20,16 @@ package fotistsiou.java.last_pencil.step_2;
  */
 
 public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("How many pencils would you like to use:");
+        String pencils = scanner.nextLine();
+        System.out.println("Who will be the first (Player 1, Player 2):");
+        String firstPlayer = scanner.nextLine();
+        for (int i = 1; i <= Integer.parseInt(pencils); i++) {
+            System.out.print('|');
+        }
+        System.out.println();
+        System.out.println(firstPlayer + " is going first!");
+    }
 }
