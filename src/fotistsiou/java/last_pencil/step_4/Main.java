@@ -1,5 +1,8 @@
 package fotistsiou.java.last_pencil.step_4;
 
+import java.util.Objects;
+import java.util.Scanner;
+
 /**
  * Fair play
  * ---------
@@ -26,4 +29,45 @@ package fotistsiou.java.last_pencil.step_4;
  */
 
 public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int pencils = definePencils(scanner);
+        scanner.nextLine();
+        System.out.println("Who will be the first (P1, P2):");
+        String player = scanner.nextLine();
+        printTable(pencils);
+        while (pencils > 0) {
+            System.out.println(player + "'s turn:");
+            int turn = scanner.nextInt();
+            pencils -= turn;
+            printTable(pencils);
+            player = Objects.equals(player, "P1") ? "P2" : "P1";
+        }
+        scanner.close();
+    }
+
+    static void printTable(int pencils) {
+        for (int i = 0; i < pencils; i++) {
+            System.out.print('|');
+        }
+        System.out.println();
+    }
+
+    static int definePencils(Scanner scanner) {
+        System.out.println("Enter the number of pencils: ");
+        while (true) {
+            try {
+                int pencils = scanner.nextInt();
+                if (pencils <= 0) {
+                    System.out.println("The number of pencils should be positive");
+                    scanner.nextLine();
+                    continue;
+                }
+                return pencils;
+            } catch (Exception e) {
+                System.out.println("The number of pencils should be numeric");
+                scanner.nextLine();
+            }
+        }
+    }
 }
