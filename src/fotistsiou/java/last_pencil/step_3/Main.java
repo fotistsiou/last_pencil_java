@@ -1,5 +1,8 @@
 package fotistsiou.java.last_pencil.step_3;
 
+import java.util.Objects;
+import java.util.Scanner;
+
 /**
  * Working on the gameplay
  * -----------------------
@@ -15,4 +18,31 @@ package fotistsiou.java.last_pencil.step_3;
  */
 
 public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("How many pencils would you like to use:");
+        int pencils = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Who will be the first (P1, P2):");
+        String player = scanner.nextLine();
+        printTable(pencils);
+        while (pencils > 0) {
+            System.out.println(player + "'s turn:");
+            int turn = scanner.nextInt();
+            scanner.nextLine();
+            if (turn <= pencils) {
+                pencils -= turn;
+                printTable(pencils);
+                player = Objects.equals(player, "P1") ? "P2" : "P1";
+            }
+        }
+        scanner.close();
+    }
+
+    static void printTable(int pencils) {
+        for (int i = 0; i < pencils; i++) {
+            System.out.print('|');
+        }
+        System.out.println();
+    }
 }
