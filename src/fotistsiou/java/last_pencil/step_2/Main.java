@@ -31,5 +31,6 @@ public class Main {
         }
         System.out.println();
         System.out.println(firstPlayer + " is going first!");
+        scanner.close();
     }
 }
