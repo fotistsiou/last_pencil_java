@@ -31,42 +31,88 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int pencils = definePencils(scanner);
-        scanner.nextLine();
-        System.out.println("Who will be the first (P1, P2):");
-        String player = scanner.nextLine();
+
+        // Define Initial Number of Pencils
+        int pencils = defineInitialNumberPencils(scanner);
+
+        // Define First Player
+        String player = defineFirstPlayer(scanner);
+
+        // Print Initial Table
         printTable(pencils);
+
+        // Running the game
         while (pencils > 0) {
-            System.out.println(player + "'s turn:");
-            int turn = scanner.nextInt();
+            // Player Movement
+            int turn = takePencils(scanner, pencils, player);
+
+            // Player Movement execution
             pencils -= turn;
-            printTable(pencils);
             player = Objects.equals(player, "P1") ? "P2" : "P1";
+            printTable(pencils);
+
+            // Game Over
+            if (pencils == 0) {
+                System.out.println(player + " won!");
+                break;
+            }
         }
+
         scanner.close();
     }
 
     static void printTable(int pencils) {
         for (int i = 0; i < pencils; i++) {
-            System.out.print('|');
+            if (i == pencils - 1) {
+                System.out.println('|');
+            } else {
+                System.out.print('|');
+            }
         }
-        System.out.println();
     }
 
-    static int definePencils(Scanner scanner) {
-        System.out.println("Enter the number of pencils: ");
+    static int defineInitialNumberPencils(Scanner scanner) {
+        System.out.println("How many pencils would you like to use:");
         while (true) {
-            try {
-                int pencils = scanner.nextInt();
-                if (pencils <= 0) {
+            String pencilStr = scanner.nextLine();
+            if (pencilStr.matches("\\d+")) {
+                int pencils = Integer.parseInt(pencilStr);
+                if (pencils == 0) {
                     System.out.println("The number of pencils should be positive");
-                    scanner.nextLine();
                     continue;
                 }
                 return pencils;
-            } catch (Exception e) {
+            } else {
                 System.out.println("The number of pencils should be numeric");
-                scanner.nextLine();
+            }
+        }
+    }
+
+    static String defineFirstPlayer(Scanner scanner) {
+        System.out.println("Who will be the first (P1, P2):");
+        while (true) {
+            String player = scanner.nextLine();
+            if (player.equals("P1") || player.equals("P2")) {
+                return player;
+            } else {
+                System.out.println("Choose between 'P1' and 'P2'");
+            }
+        }
+    }
+
+    static int takePencils(Scanner scanner, int pencils, String player) {
+        System.out.println(player + "'s turn!");
+        while (true) {
+            String movementStr = scanner.nextLine();
+            if (movementStr.matches("[123]")) {
+                int movement = Integer.parseInt(movementStr);
+                if (movement > pencils) {
+                    System.out.println("Too many pencils were taken");
+                    continue;
+                }
+                return movement;
+            } else {
+                System.out.println("Possible values: '1', '2' or '3'");
             }
         }
     }
