@@ -47,8 +47,8 @@ to get it built. Here’s what awaits you:
   - Stage Topics:
     - Calling methods
     - One-line condition with ternary operator
-    - While and do-while loops
     - For loop
+    - While and do-while loops
     - Break and continue. Branching
     - Declaring methods
     - Method "main"
@@ -57,7 +57,13 @@ to get it built. Here’s what awaits you:
     - Primitive and reference types
     - Array
     - What is object-oriented programming
+    - IDE
+    - What are bugs
     - Processing strings
+    - Debugging overview
+    - IntelliJ IDEA
+    - Run and debug with IntelliJ IDEA
+    - Debugging simple constructs
 - Stage 4/5: Fair play
   - You took all the pencils in one turn. Your friend decided that it was unfair and somehow took a negative number of 
     pencils! Who is the winner? Let's add the winning condition!
@@ -71,3 +77,4 @@ to get it built. Here’s what awaits you:
     - Defining classes
     - Objects and their properties
     - Random class
+    - Formatted output
